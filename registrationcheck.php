@@ -12,12 +12,15 @@ $newpassword=(!empty($_POST['newpassword']) ? $_POST['newpassword'] : null);
 
 $newusername = stripslashes($newusername);
 $newpassword = stripslashes($newpassword);
+
 $newusername = mysqli_real_escape_string($db, $newusername);
 $newpassword = mysqli_real_escape_string($db, $newpassword);
-$sql="INSERT INTO gebruikers (username, password) VALUES ('$newusername', '$newpassword')";
-echo $sql;
-//$sql="SELECT * FROM users WHERE username='test' and password='1234'";
-//echo $sql;
+
+$safe_password = hash("sha256", $newpassword);
+
+$sql="INSERT INTO gebruikers (username, password) VALUES ('$newusername', '$safe_password')";
+
 mysqli_query($db, $sql);
+
 header("location: registration.php?check=1");
 ?>

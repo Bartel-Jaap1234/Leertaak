@@ -14,14 +14,15 @@ $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
 $myusername = mysqli_real_escape_string($db, $myusername);
 $mypassword = mysqli_real_escape_string($db, $mypassword);
-$sql="SELECT * FROM gebruikers WHERE username='$myusername' and password='$mypassword'";
+$hashed_pwd = hash('sha256', $mypassword);
+$sql="SELECT * FROM gebruikers WHERE username='$myusername' and password='$hashed_pwd'";
 $result=mysqli_query($db, $sql);
 $count=mysqli_num_rows($result);
  if($count==1){
      //session_register("myusername");
      session_start();
      $_SESSION['login_user']=$myusername;
-     $_SESSION['pass_user']=$mypassword;
+     //$_SESSION['pass_user']=$mypassword;
      header("location: home.php");
      //exit();
  }

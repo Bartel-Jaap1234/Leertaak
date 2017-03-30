@@ -17,11 +17,15 @@
     <form method="POST" action="registrationcheck.php" class="form-signin">
         <h2 class="form-signin-heading">Een account registreren</h2>
         <div style = "font-size:11px; color:#008000; margin-top:10px"><?php if(isset($_GET['check'])) {if($_GET["check"]=='1'){echo "Geregistreerd!";};}; ?></div>
-        <input name="newusername" type="text" id="newusername" class="form-control" placeholder="Gebruikersnaam" required autofocus>
+        <label>
+            <input name="newusername" type="text" id="newusername" class="form-control" autocomplete="off" placeholder="Gebruikersnaam" required autofocus>
+        </label>
 
-        <input name="newpassword" type="password" id="newpassword" class="form-control" placeholder="Wachtwoord" required>
+        <label>
+        <input name="newpassword" type="password" id="newpassword" class="form-control" autocomplete="off" placeholder="Wachtwoord" required>
+        </label>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-        <h2><a href = "login.php">Inlogscherm</a></h2>
+        <h3><a href = "login.php">Terug naar het inlogscherm.</a></h3>
     </form>
     <!--<div style = "font-size:11px; color:#008000; margin-top:10px"><?php if(isset($_GET['check'])) {if($_GET["check"]=='1'){echo "Geregistreerd!";};}; ?></div>-->
 </div> <!-- /container -->
