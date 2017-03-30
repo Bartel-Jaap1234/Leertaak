@@ -19,15 +19,12 @@ $sql="SELECT * FROM gebruikers WHERE username='$myusername' and password='$hashe
 $result=mysqli_query($db, $sql);
 $count=mysqli_num_rows($result);
  if($count==1){
-     //session_register("myusername");
      session_start();
      $_SESSION['login_user']=$myusername;
-     //$_SESSION['pass_user']=$mypassword;
      header("location: home.php");
-     //exit();
+     exit();
  }
 else {
-    $error = "Verkeerde naam en wachtwoord opgegeven.";
     header("location: login.php?error=1");
     exit();
 }

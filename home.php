@@ -14,7 +14,7 @@ if(!isset($_SESSION['login_user'])){
 
 <html>
 <body>
-Ingelogd
+Welkom, u bent ingelogd.
 <h4><a href = "logout.php">Uitloggen</a></h4>
 </body>
 </html>

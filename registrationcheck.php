@@ -9,18 +9,30 @@ include "config.php";
 
 $newusername=(!empty($_POST['newusername']) ? $_POST['newusername'] : null);
 $newpassword=(!empty($_POST['newpassword']) ? $_POST['newpassword'] : null);
+/*if(strlen($newusername) < 5){
+    header("location: registration.php?err=2");
+}
 
-$newusername = stripslashes($newusername);
-$newpassword = stripslashes($newpassword);
+if(strlen($newpassword) < 5){
+    header("location: registration.php?err=3");
+}*/
 
-$newusername = mysqli_real_escape_string($db, $newusername);
-$newpassword = mysqli_real_escape_string($db, $newpassword);
+if ($_POST['newpassword'] == $_POST['confpwd']) {
+    $newusername = stripslashes($newusername);
+    $newpassword = stripslashes($newpassword);
 
-$safe_password = hash("sha256", $newpassword);
+    $newusername = mysqli_real_escape_string($db, $newusername);
+    $newpassword = mysqli_real_escape_string($db, $newpassword);
 
-$sql="INSERT INTO gebruikers (username, password) VALUES ('$newusername', '$safe_password')";
+    $safe_password = hash("sha256", $newpassword);
 
-mysqli_query($db, $sql);
+    $sql="INSERT INTO gebruikers (username, password) VALUES ('$newusername', '$safe_password')";
 
-header("location: registration.php?check=1");
+    mysqli_query($db, $sql);
+    header("location: registration.php?check=1");
+}
+else {
+    header("location: registration.php?err=1");
+    exit();
+}
 ?>
