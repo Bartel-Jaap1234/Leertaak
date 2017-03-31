@@ -9,13 +9,6 @@ include "config.php";
 
 $newusername=(!empty($_POST['newusername']) ? $_POST['newusername'] : null);
 $newpassword=(!empty($_POST['newpassword']) ? $_POST['newpassword'] : null);
-/*if(strlen($newusername) < 5){
-    header("location: registration.php?err=2");
-}
-
-if(strlen($newpassword) < 5){
-    header("location: registration.php?err=3");
-}*/
 
 if ($_POST['newpassword'] == $_POST['confpwd']) {
     $newusername = stripslashes($newusername);

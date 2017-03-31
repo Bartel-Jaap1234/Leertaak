@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="L. Kruize" content="">
     <title>OnzeBank Login</title>
+    <!--CSS-->
     <link href="layout.css" rel="stylesheet">
 </head>
 
@@ -29,7 +30,7 @@
         <label>
             <input name="confpwd" type="password" id="newpassword" class="form-control" autocomplete="off" placeholder="Bevestig wachtwoord" required>
         </label>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Opslaan</button>
         <h3><a href = "login.php">Terug naar het inlogscherm.</a></h3>
     </form>
 </div>
