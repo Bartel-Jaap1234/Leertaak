@@ -18,6 +18,7 @@
         <h2 class="form-signin-heading">Een account registreren</h2>
         <div style = "font-size:11px; color:#008000; margin-top:10px"><?php if(isset($_GET['check'])) {if($_GET["check"]=='1'){echo "Geregistreerd!";};}; ?></div>
         <div style = "font-size:11px; color:#cc0000; margin-top:10px"><?php if(isset( $_GET['err']) ){if($_GET["err"]=='2'){echo "Gebruikersnaam te kort.";};}; ?></div>
+        <div style = "font-size:11px; color:#008000; margin-top:10px"><?php if(isset($_GET['check'])) {if($_GET["check"]=='2'){echo "Gebruikersnaam bestaat al.";};}; ?></div>
         <label>
             <input pattern=".{5,}" name="newusername" type="text" id="newusername" class="form-control" autocomplete="off" placeholder="Gebruikersnaam" title="Minimaal 5 tekens, maximaal 45"required autofocus>
         </label>

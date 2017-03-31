@@ -18,12 +18,12 @@ $hashed_pwd = hash('sha256', $mypassword);
 $sql="SELECT * FROM gebruikers WHERE username='$myusername' and password='$hashed_pwd'";
 $result=mysqli_query($db, $sql);
 $count=mysqli_num_rows($result);
- if($count==1){
+if($count==1){
      session_start();
      $_SESSION['login_user']=$myusername;
      header("location: home.php");
      exit();
- }
+}
 else {
     header("location: login.php?error=1");
     exit();
